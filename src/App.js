@@ -1,8 +1,9 @@
 import React from 'react';
+import { Activity } from './components';
 
 const App = () => {
     return (
-        <h1>Heelo World</h1>
+        <div><Activity /></div>
     )
 }
 
