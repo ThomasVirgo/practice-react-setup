@@ -14,6 +14,7 @@ const Activity = () => {
 
         let newActivity = await getRandomActivity();
         console.log(newActivity);
+        setActivity(newActivity);
 
 
         return () => consoloe.log('Activity component unmounted')
@@ -21,7 +22,7 @@ const Activity = () => {
 
     return (
         <div id='activity-generator'>
-
+            Your activity is: {activity}
         </div>
     )
 }
