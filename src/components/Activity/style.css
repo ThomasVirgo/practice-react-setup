@@ -1,0 +1,24 @@
+#activity{
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+    background-color: aqua;
+};
+
+.btn {
+    text-decoration: none;
+    background-color: blueviolet;
+};
+
+.btn:hover {
+    cursor: pointer;
+    color: white;
+};
+
+.container {
+    margin: auto;
+    border: 5px solid red;
+}
+
+
+

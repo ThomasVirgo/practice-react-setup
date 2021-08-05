@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
-import { Activity } from './components';
+import { ActivityPage, UniversityPage } from './pages';
 
 const App = () => {
     return (
@@ -10,7 +10,10 @@ const App = () => {
         <Switch>
             <Route exact path='/' render={() => <h1>Hola Amigo!</h1>}></Route>
             <Route path = '/activity'>
-              <Activity />   
+              <ActivityPage />   
+            </Route>
+            <Route path="/universities">
+                <UniversityPage />
             </Route>
             <Route render={() => <h1>Page not Found :(</h1>}></Route>
         </Switch>

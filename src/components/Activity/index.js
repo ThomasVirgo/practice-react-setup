@@ -1,28 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import './style.css';
 
 const Activity = () => {
     const [activity, setActivity] = useState("");
 
-    useEffect(async () => {
-        console.log('Activity component mounted')
+    async function getRandomActivity(){
+        const { data } = await axios.get('http://www.boredapi.com/api/activity/');
+        return data.activity;
+    }
 
-        async function getRandomActivity(){
-            const { data } = await axios.get('http://www.boredapi.com/api/activity/');
-            return data.activity;
-        }
-
-        let newActivity = await getRandomActivity();
-        console.log(newActivity);
+    async function handleClick(){
+        const newActivity = await getRandomActivity();
         setActivity(newActivity);
-
-
-        return () => consoloe.log('Activity component unmounted')
-    }, [])
+    }
 
     return (
-        <div id='activity-generator'>
-            Your activity is: {activity}
+        <div class='container'>
+            <div id='activity'>
+                {activity}
+            </div>
+            <button onClick={handleClick} class="btn">Get New Activity</button>
         </div>
     )
 }
