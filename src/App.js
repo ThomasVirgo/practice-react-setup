@@ -5,17 +5,6 @@ import { Nav } from './layout';
 import { useDispatch, useSelector } from 'react-redux';
 
 const App = () => {
-    const dispatch = useDispatch();
-    const selector = useSelector(store => store.value);
-    console.log(selector);
-
-    //note that like usual useState, changing the redux state triggers a rerender.
-    //useEffect happens after render
-    function handleClick(){
-        dispatch({
-            type: 'counter/incremented'
-        })
-    };
 
     return (
         <>
@@ -30,9 +19,7 @@ const App = () => {
             </Route>
             <Route render={() => <h1>Page not Found :(</h1>}></Route>
         </Switch>
-        <button onClick={handleClick}>Test Redux</button>
         
-        {/* <Footer /> */}
         </>
     )
 }
