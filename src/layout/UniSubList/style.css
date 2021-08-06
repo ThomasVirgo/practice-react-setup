@@ -1,0 +1,10 @@
+.uni-card {
+    text-align: center;
+    width: 50vw;
+    margin: 20px auto;
+}
+
+.uni-card:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+

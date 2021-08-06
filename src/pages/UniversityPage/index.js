@@ -2,41 +2,27 @@ import React, { useState, useEffect } from 'react';
 import { Switch, Route, useRouteMatch, Link } from 'react-router-dom';
 import axios from 'axios';
 import { UniSubList } from '../../layout';
+import './style.css';
 
 
 const UniversityPage = () => {
-    // const [unis, setUnis] = useState({});
     let match = useRouteMatch();
 
-    // useEffect(async () => {
-    //     const data = await getUnis();
-    //     setUnis(data);
-    //     console.log(data);
-    // }, [])
-
-    // async function getUnis(){
-    //     const { data } = await axios.get('http://universities.hipolabs.com/search?country=United+States');
-    //     console.log(data);
-    //     return ;
-    // }
+    const alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    const links = alphabet.map(letter => 
+    <span key={letter} className ='span-link'>
+        <Link to={`${match.url}/${letter}`}>{letter}</Link>
+    </span>
+    )
 
     return (
         <div id='unis-container'>
             <h2>Universities</h2>
-                <ul>
-                    <li>
-                        <Link to={`${match.url}/A`}>A</Link>
-                    </li>
-                    <li>
-                        <Link to={`${match.url}/B`}>
-                            B
-                        </Link>
-                    </li>
-            </ul>
+            {links}
 
             <Switch>
                 <Route path={`${match.path}/:letter`}>
-                    <UniSubList />
+                    <UniSubList/>
                 </Route>
                 <Route path={match.path}>
                     <h3>Please select a letter</h3>
