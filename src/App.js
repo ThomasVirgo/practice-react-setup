@@ -9,6 +9,8 @@ const App = () => {
     const selector = useSelector(store => store.value);
     console.log(selector);
 
+    //note that like usual useState, changing the redux state triggers a rerender.
+    //useEffect happens after render
     function handleClick(){
         dispatch({
             type: 'counter/incremented'

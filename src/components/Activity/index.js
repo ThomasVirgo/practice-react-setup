@@ -16,11 +16,11 @@ const Activity = () => {
     }
 
     return (
-        <div class='container'>
+        <div className='container'>
             <div id='activity'>
                 {activity}
             </div>
-            <button onClick={handleClick} class="btn">Get New Activity</button>
+            <button onClick={handleClick} className="btn">Get New Activity</button>
         </div>
     )
 }
