@@ -7,23 +7,23 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-// import doggosReducer from '../reducers/doggoReducer'
+import uniReducer from '../reducers/uniReducer';
 
-// const TestProviders = ({ initState }) => {
-//     initState ||= { doggos: [], loading: false }
-//     const testStore = createStore(() => doggosReducer(initState, { type: '@@INIT' }), applyMiddleware(thunk))
+const TestProviders = ({ initState }) => {
+    initState ||= { unis: [] }
+    const testStore = createStore(() => uniReducer(initState, { type: '@@INIT' }), applyMiddleware(thunk))
 
-//     return ({ children }) => (
-//         <Provider store={testStore}>
-//             { children }
-//         </Provider>
-//     )
-// }
+    return ({ children }) => (
+        <Provider store={testStore}>
+            { children }
+        </Provider>
+    )
+}
 
-// const renderWithReduxProvider = (ui, options={}) => {
-//     let TestWrapper = TestProviders(options)
-//     render(ui, { wrapper: TestWrapper, ...options })
-// }
+const renderWithReduxProvider = (ui, options={}) => {
+    let TestWrapper = TestProviders(options)
+    render(ui, { wrapper: TestWrapper, ...options })
+}
 
 import axios from 'axios';
 jest.mock('axios')
