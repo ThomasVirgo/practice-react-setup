@@ -10,7 +10,7 @@ const App = () => {
         <>
         <Nav></Nav>
         <Switch>
-            <Route exact path='/' render={() => <h1>Hola Amigo!</h1>}></Route>
+            <Route exact path='/' render={() => <h1 aria-label='home'>Hola Amigo!</h1>}></Route>
             <Route path = '/activity'>
               <ActivityPage />   
             </Route>
