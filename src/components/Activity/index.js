@@ -20,7 +20,7 @@ const Activity = () => {
             <div id='activity'>
                 {activity}
             </div>
-            <button onClick={handleClick} className="btn">Get New Activity</button>
+            <button onClick={handleClick} className="btn" aria-label='new activity'>Get New Activity</button>
         </div>
     )
 }
