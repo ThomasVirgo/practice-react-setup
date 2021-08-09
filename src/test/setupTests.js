@@ -5,6 +5,7 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
@@ -15,11 +16,13 @@ const TestProviders = ({ initState }) => {
     const testStore = createStore(() => uniReducer(initState, { type: '@@INIT' }), applyMiddleware(thunk))
 
     return ({ children }) => (
-        <Provider store={testStore}>
-            <Router>
-                { children }
-            </Router>
-        </Provider>
+        <MemoryRouter>
+            <Provider store={testStore}>
+                <Router>
+                    { children }
+                </Router>
+            </Provider>
+        </MemoryRouter>
     )
 }
 
